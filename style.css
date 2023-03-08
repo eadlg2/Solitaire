@@ -1,5 +1,5 @@
 html, body {
-    overflow: hidden;
+    overflow-x: hidden;
     margin: 0;
     padding: 0;
 }
@@ -77,4 +77,15 @@ nav button:hover {
 h1 {
     font-family: Assistant;
     font-size: 35px;
+}
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+html::-webkit-scrollbar {
+    display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+html, body {
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
 }
