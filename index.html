@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Solitaire</title>
+  <style>
+    body {
+      padding: 0;
+      margin: 0;
+      background-color: #1b1b1b;
+    }
+  </style>
+  <script src="./p5.min.js"></script>
+  <!-- <script src="../addons/p5.sound.js"></script> -->
+  <script src="sketch.js"></script>
+  <script src="Card.js"></script>
+
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Assistant">
+</head>
+
+<body>
+  <main>
+    <nav>
+        <div class="navLinks">
+            <button onclick="newGame()" type="button">New Game</button>
+            <button onclick="undo()" type="button">Undo</button>
+            <button onclick="showSettings()" type="button">Settings</button>
+        </div>
+    </nav>
+
+    <div class="modal" id="settings" style="display: none;">
+        <div class="modal-box" id="settings-box">
+            <div class="modal-header">
+                <div class="modal-header-text">
+                    <h1>Settings</h1>
+                </div>
+            </div>
+
+            <div></div>
+        </div>
+    </div>
+  </main>
+</body>
+
+</html>
