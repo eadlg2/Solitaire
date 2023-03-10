@@ -93,5 +93,6 @@ html, body {
 @media (max-width:800px) { 
     html, body {
         overflow: hidden;
+        touch-action: none;
     }
 }
