@@ -99,14 +99,14 @@ let main = ( sketch ) => {
         sketch.createCanvas(sketch.displayWidth, sketch.displayHeight);
     
         if (sketch.width <= 800) {
-            cardWidth = sketch.width / 9;
+            w = sketch.width / 9;
             x[0] = 15;
             for (let i = 1; i < x.length; ++i) {
-                x[i] = x[i - 1] + cardWidth + (cardWidth / 5);
+                x[i] = x[i - 1] + w + (w / 5);
             }
-            cardHeight = sketch.height / 10;
-            ty = y + cardHeight + 40;
-            offset = cardHeight * 0.28;
+            h = sketch.height / 10;
+            ty = y + h + 40;
+            offset = h * 0.28;
         }
 
         if (!bg_color) {
