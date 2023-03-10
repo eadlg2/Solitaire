@@ -6,8 +6,8 @@ class Card {
         this.y = y;
         this.sketch = sketch;
         if (this.sketch.width < 800) {
-            this.w = this.sketch.width / 10;
-            this.h = this.sketch.height / 10;
+            this.w = this.sketch.width / 9;
+            this.h = this.sketch.height / 11;
         } else {
             this.w = 100;
             this.h = 140;
