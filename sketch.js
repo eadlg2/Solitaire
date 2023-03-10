@@ -19,6 +19,7 @@ let restock = [];
 let x = [20, 130, 240, 350, 460, 570, 680];
 let y = 30;
 let ty = 210;
+let offset = 30;
 
 let heldCard = [];
 let oldLocation = 'null';
@@ -97,11 +98,22 @@ let main = ( sketch ) => {
     sketch.setup = () => {
         sketch.createCanvas(sketch.displayWidth, sketch.displayHeight);
     
+        if (sketch.width <= 800) {
+            cardWidth = sketch.width / 9;
+            x[0] = 15;
+            for (let i = 1; i < x.length; ++i) {
+                x[i] = x[i - 1] + cardWidth + (cardWidth / 5);
+            }
+            cardHeight = sketch.height / 10;
+            ty = y + cardHeight + 40;
+            offset = cardHeight * 0.28;
+        }
+
         if (!bg_color) {
             bg_color = sketch.color(0, 100, 0);
         }
     
-        bg_stock = new Card(20, y, sketch, refresh);
+        bg_stock = new Card(x[0], y, sketch, refresh);
         
         bg_foundation = [];
         for (let i = 0; i < 4; ++i) {
@@ -149,8 +161,8 @@ let main = ( sketch ) => {
                 }
                 deck[index].x = x[i];
                 deck[index].startX = x[i];
-                deck[index].y = ty + j * 30;
-                deck[index].startY = ty + j * 30;
+                deck[index].y = ty + j * offset;
+                deck[index].startY = ty + j * offset;
                 tableau[i].push(deck[index]);
                 deck.splice(index, 1);
                 j += 1;
@@ -273,8 +285,8 @@ let main = ( sketch ) => {
         for (let i = 0; i < turnAmount; ++i) {
             let currCard = stock.shift();
             currCard.flipped = true;
-            currCard.x = x[1] + i * 30;
-            currCard.startX = x[1] + i * 30;
+            currCard.x = x[1] + i * offset;
+            currCard.startX = x[1] + i * offset;
             currCard.y = y;
             currCard.startY = y;
             waste.push(currCard);
@@ -413,7 +425,7 @@ let main = ( sketch ) => {
                             || (heldCard[0].suit % 2 != 0 && tableau[i][currLength].suit % 2 === 0))
                             && heldCard[0].value === tableau[i][currLength].value - 1) {
                             for (let j = 0; j < heldCard.length; ++j) {
-                                heldCard[j].confirm(tableau[i][currLength].x, tableau[i][currLength].y + (j + 1) * 30, tableau[i]);
+                                heldCard[j].confirm(tableau[i][currLength].x, tableau[i][currLength].y + (j + 1) * offset, tableau[i]);
                             }
                             flipTab()
                             ret = false;
@@ -426,7 +438,7 @@ let main = ( sketch ) => {
                     if (heldCard) {
                         if (heldCard[0].value === K) {
                             for (let j = 0; j < heldCard.length; ++j) {
-                                heldCard[j].confirm(x[i], ty + j * 30, tableau[i]);
+                                heldCard[j].confirm(x[i], ty + j * offset, tableau[i]);
                             }
                             flipTab();
                             ret = false;

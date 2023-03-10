@@ -4,18 +4,25 @@ class Card {
         this.startY = y;
         this.x = x;
         this.y = y;
-        this.w = 100;
-        this.h = 140;
+        this.sketch = sketch;
+        if (this.sketch.width < 800) {
+            this.w = this.sketch.width / 10;
+            this.h = this.sketch.height / 10;
+        } else {
+            this.w = 100;
+            this.h = 140;
+        }
         this.r = 5;
         this.offsetX = 0;
         this.offsetY = 0;
         this.moving = false;
-        this.sketch = sketch;
         this.front = front;
         this.back = back;
         if (this.front && this.back) {
-            front.resize(100, 140);
-            back.resize(100, 140);
+            front.resize(this.w, this.h);
+            back.resize(this.w, this.h);
+        } else if (this.front) {
+            front.resize(this.w, this.h);
         }
         this.suit = suit;
         this.value = value;
