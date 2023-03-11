@@ -590,7 +590,9 @@ let s = ( sketch ) => {
         });
         apply.mouseReleased(() => {
             bg_color = rectColor;
-            showSettings();
+
+            shown = false;
+
             if (turnOne != preTurnOne) {
                 turnOne = preTurnOne;
                 newGame();
@@ -687,7 +689,7 @@ function showSettings() {
     let settings = document.getElementById('settings');    
     let rules = document.getElementById('rules'); 
 
-    if(settings.style.display == "none" && rules.style.display == "flex") {
+    if (settings.style.display == "none" && rules.style.display == "flex") {
         settings.style.display = "flex";
         rules.style.display = "none";
         shown = true;
@@ -704,7 +706,9 @@ function closeSettings(event) {
     let settingsBox = document.getElementById('settings-box');
     let coords = settingsBox.getBoundingClientRect();
 
-    if (coords.x == 0 && coords.y == 0 && coords.right == 0 && coords.bottom == 0) {
+    if (shown == false) {
+        settings.style.display = "none";
+    } else if (coords.x == 0 && coords.y == 0 && coords.right == 0 && coords.bottom == 0) {
         showSettings();
     } else {
         if (event.clientX < coords.x || event.clientX > coords.right
