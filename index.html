@@ -32,10 +32,11 @@
             <button onclick="newGame()" type="button">New Game</button>
             <button onclick="undo()" type="button">Undo</button>
             <button onclick="showSettings()" type="button">Settings</button>
+            <button onclick="showRules()" type="button">Rules</button>
         </div>
     </nav>
 
-    <div class="modal" id="settings" style="display: none;">
+    <div class="modal" onclick="closeSettings(event)" id="settings" style="display: none;">
         <div class="modal-box" id="settings-box">
             <div class="modal-header">
                 <div class="modal-header-text">
@@ -45,6 +46,54 @@
 
             <div></div>
         </div>
+    </div>
+    
+    <div class="modal" onclick="closeRules(event)" id="rules" style="display: none;">
+      <div class="modal-box" id="rules-box">
+          <div class="modal-header">
+              <div class="modal-header-text">
+                  <h1>Rules</h1>
+              </div>
+          </div>
+
+          <div class="modal-content">
+            <p>
+              Welcome to Klondike Solitaire!
+            </p>
+
+            <p>
+              The goal of the game is simple. In order to win, you must <br>
+              move all the cards to the top 4 stacks. Each stack can only <br>
+              have one suit attributed to it, and cards must be arranged <br>
+              in ascending order (Ace to King). 
+            </p>
+             
+            <p>
+              Below the 4 empty stacks, you will find 7 tableau stacks. <br> 
+              These can be used to arrange cards to move up later. Cards <br>
+              in these stacks must be arranged in descending order (King to Ace) <br>
+              and must alternate suit color i.e. to place a card on a black 7, <br>
+              the card must be a red 6. 
+            </p>
+
+            <p>
+              Another way to reveal cards is through the stockpile in the top <br>
+              left corner. By default, when clicked, the pile will flip 3 cards <br>
+              with only the top card being playable. If you would like an easier <br>
+              option, you may choose to change the game to "Turn One" in the <br>
+              settings menu.
+            </p>
+             
+            <p>
+              There is also an undo button in case you decide to try a different <br>
+              move.
+            </p>
+
+            <p>
+              Have fun!
+            </p>
+          </div>
+      </div>
     </div>
   </main>
 </body>

@@ -685,11 +685,62 @@ let sP5 = new p5(s, 'settings-box');
 
 function showSettings() {
     let settings = document.getElementById('settings');    
-    if(settings.style.display == "none") {
+    let rules = document.getElementById('rules'); 
+
+    if(settings.style.display == "none" && rules.style.display == "flex") {
+        settings.style.display = "flex";
+        rules.style.display = "none";
+        shown = true;
+    } else if (settings.style.display == "none") {
         settings.style.display = "flex";
         shown = true;
     } else {
         settings.style.display = "none";
         shown = false;
+    }
+}
+
+function closeSettings(event) {
+    let settingsBox = document.getElementById('settings-box');
+    let coords = settingsBox.getBoundingClientRect();
+
+    if (coords.x == 0 && coords.y == 0 && coords.right == 0 && coords.bottom == 0) {
+        showSettings();
+    } else {
+        if (event.clientX < coords.x || event.clientX > coords.right
+            || event.clientY < coords.y || event.clientY > coords.bottom) {
+            showSettings();
+        } 
+    }
+}
+
+function showRules() {
+    let rules = document.getElementById('rules'); 
+    let settings = document.getElementById('settings');    
+
+    if(rules.style.display == "none" && settings.style.display == "flex") {
+        rules.style.display = "flex";
+        settings.style.display = "none";
+        shown = true;
+    } else if (rules.style.display == "none") {
+        rules.style.display = "flex";
+        shown = true;
+    } else {
+        rules.style.display = "none";
+        shown = false;
+    }
+}
+
+function closeRules(event) {
+    let rulesBox = document.getElementById('rules-box');
+    let coords = rulesBox.getBoundingClientRect();
+
+    if (coords.x == 0 && coords.y == 0 && coords.right == 0 && coords.bottom == 0) {
+        showRules();
+    } else {
+        if (event.clientX < coords.x || event.clientX > coords.right
+            || event.clientY < coords.y || event.clientY > coords.bottom) {
+            showRules();
+        } 
     }
 }
