@@ -18,7 +18,7 @@ let restock = [];
 
 let x = [20, 130, 240, 350, 460, 570, 680];
 let y = 30;
-let ty = 210;
+let ty = 190;
 let offset = 30;
 
 let heldCard = [];
