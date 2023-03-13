@@ -100,4 +100,8 @@ html, body {
         overflow: hidden;
         touch-action: none;
     }
+    .modal-content {
+        height: 400px;
+        overflow: scroll;
+    }
 }
