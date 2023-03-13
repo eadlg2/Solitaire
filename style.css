@@ -77,6 +77,7 @@ nav button:hover {
 
 .modal-content {
     font-family: Assistant;
+    width: 500px;
 }
 
 h1 {
@@ -101,6 +102,7 @@ html, body {
         touch-action: none;
     }
     .modal-content {
+        width: auto;
         height: 400px;
         overflow: scroll;
     }
